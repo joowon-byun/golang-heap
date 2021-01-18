@@ -4,7 +4,7 @@ Benchmark for Golang heap implementation
 # Result
 일반 benchmark
 * 그냥 benchmark를 돌릴 때는 그냥 `[]int`보다 `[][]int`가 더 빠르다.
-  (`[][]int`은 할당하다가 죽어서 속도 차이 확인 불가)
+  (`[][]int`은 할당하다가 죽어서 속도 차이 확인 불가하지만, 이미 총 걸린 시간에 차이가 많이난다.)
 * `[]int` 을 사용하면 `Out of memory`가 발생한다.
 
 일반 benchmark 결과 분석
