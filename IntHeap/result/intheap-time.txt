@@ -1,0 +1,7 @@
+goos: darwin
+goarch: amd64
+pkg: github.com/winnie-byun/golang-heap/IntHeap
+BenchmarkIntHeapPop_Mem-12    	  100000	         1.26 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIntHeapPop-12        	  100000	         1.34 ns/op
+PASS
+ok  	github.com/winnie-byun/golang-heap/IntHeap	0.021s
