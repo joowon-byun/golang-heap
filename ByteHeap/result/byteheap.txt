@@ -1,0 +1,77 @@
+goos: linux
+goarch: amd64
+BenchmarkHeapByteSlicePop-2   	fatal error: runtime: out of memory
+
+runtime stack:
+runtime.throw(0x53adf8, 0x16)
+	/usr/local/go/src/runtime/panic.go:608 +0x72
+runtime.sysMap(0xc1b4000000, 0x4000000, 0x643478)
+	/usr/local/go/src/runtime/mem_linux.go:156 +0xc7
+runtime.(*mheap).sysAlloc(0x6296a0, 0x4000000, 0x6296b8, 0x7fda702c0688)
+	/usr/local/go/src/runtime/malloc.go:619 +0x1c7
+runtime.(*mheap).grow(0x6296a0, 0x1, 0x0)
+	/usr/local/go/src/runtime/mheap.go:920 +0x42
+runtime.(*mheap).allocSpanLocked(0x6296a0, 0x1, 0x643488, 0x400)
+	/usr/local/go/src/runtime/mheap.go:848 +0x337
+runtime.(*mheap).alloc_m(0x6296a0, 0x1, 0x23, 0x7fda7060afff)
+	/usr/local/go/src/runtime/mheap.go:692 +0x119
+runtime.(*mheap).alloc.func1()
+	/usr/local/go/src/runtime/mheap.go:759 +0x4c
+runtime.(*mheap).alloc(0x6296a0, 0x1, 0x7fda70010023, 0x7fda702c0688)
+	/usr/local/go/src/runtime/mheap.go:758 +0x8a
+runtime.(*mcentral).grow(0x62b298, 0x0)
+	/usr/local/go/src/runtime/mcentral.go:232 +0x94
+runtime.(*mcentral).cacheSpan(0x62b298, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/mcentral.go:106 +0x2f8
+runtime.(*mcache).refill(0x7fda864176c0, 0x458d23)
+	/usr/local/go/src/runtime/mcache.go:122 +0x95
+runtime.(*mcache).nextFree.func1()
+	/usr/local/go/src/runtime/malloc.go:749 +0x32
+runtime.systemstack(0x0)
+	/usr/local/go/src/runtime/asm_amd64.s:351 +0x66
+runtime.mstart()
+	/usr/local/go/src/runtime/proc.go:1229
+
+goroutine 8 [running]:
+runtime.systemstack_switch()
+	/usr/local/go/src/runtime/asm_amd64.s:311 fp=0xc000073cf0 sp=0xc000073ce8 pc=0x455320
+runtime.(*mcache).nextFree(0x7fda864176c0, 0xc000086023, 0xc000073dc0, 0x4ed758, 0xc00000a060)
+	/usr/local/go/src/runtime/malloc.go:748 +0xb6 fp=0xc000073d48 sp=0xc000073cf0 pc=0x40aff6
+runtime.mallocgc(0x100, 0x507340, 0xc00000e201, 0x1659a8bd57391797)
+	/usr/local/go/src/runtime/malloc.go:903 +0x793 fp=0xc000073de8 sp=0xc000073d48 pc=0x40b943
+runtime.makeslice(0x507340, 0x100, 0x100, 0x1096df90e60e6da6, 0xc000073e58, 0x4ed6bb)
+	/usr/local/go/src/runtime/slice.go:70 +0x77 fp=0xc000073e18 sp=0xc000073de8 pc=0x43e857
+_/home/ubuntu/prque/byteheap.MakeRandomBytes(0x100, 0xc1b3ffff00, 0x100, 0x100)
+	/home/ubuntu/prque/byteheap/heap_test.go:58 +0xe8 fp=0xc000073e88 sp=0xc000073e18 pc=0x4ef2d8
+_/home/ubuntu/prque/byteheap.BenchmarkHeapByteSlicePop(0xc000074000)
+	/home/ubuntu/prque/byteheap/heap_test.go:43 +0xea fp=0xc000073f38 sp=0xc000073e88 pc=0x4eefca
+testing.(*B).runN(0xc000074000, 0x5f5e100)
+	/usr/local/go/src/testing/benchmark.go:141 +0xb2 fp=0xc000073f78 sp=0xc000073f38 pc=0x4abe92
+testing.(*B).launch(0xc000074000)
+	/usr/local/go/src/testing/benchmark.go:290 +0xbf fp=0xc000073fd8 sp=0xc000073f78 pc=0x4ac5df
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1333 +0x1 fp=0xc000073fe0 sp=0xc000073fd8 pc=0x457281
+created by testing.(*B).doBench
+	/usr/local/go/src/testing/benchmark.go:259 +0x59
+
+goroutine 1 [chan receive, 3 minutes]:
+testing.(*B).doBench(0xc000074000, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/testing/benchmark.go:260 +0x77
+testing.(*benchContext).processBench(0xc00000a0c0, 0xc000074000)
+	/usr/local/go/src/testing/benchmark.go:447 +0x2ec
+testing.(*B).run(0xc000074000)
+	/usr/local/go/src/testing/benchmark.go:251 +0x74
+testing.(*B).Run(0xc000074340, 0x53b5c4, 0x19, 0x540528, 0x4abb00)
+	/usr/local/go/src/testing/benchmark.go:515 +0x2e1
+testing.runBenchmarks.func1(0xc000074340)
+	/usr/local/go/src/testing/benchmark.go:416 +0x78
+testing.(*B).runN(0xc000074340, 0x1)
+	/usr/local/go/src/testing/benchmark.go:141 +0xb2
+testing.runBenchmarks(0x0, 0x0, 0xc00000a0a0, 0x61db00, 0x2, 0x2, 0x80)
+	/usr/local/go/src/testing/benchmark.go:422 +0x323
+testing.(*M).Run(0xc00008a000, 0x0)
+	/usr/local/go/src/testing/testing.go:1040 +0x37c
+main.main()
+	_testmain.go:44 +0x13d
+exit status 2
+FAIL	_/home/ubuntu/prque/byteheap	181.235s

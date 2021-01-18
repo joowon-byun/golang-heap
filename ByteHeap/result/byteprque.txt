@@ -1,0 +1,5 @@
+goos: linux
+goarch: amd64
+BenchmarkPrqueByteSlicePop-2   	 1000000	      2976 ns/op
+PASS
+ok  	_/home/ubuntu/prque/byteheap	13.892s

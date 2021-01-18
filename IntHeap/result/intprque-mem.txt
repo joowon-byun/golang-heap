@@ -1,0 +1,5 @@
+goos: linux
+goarch: amd64
+BenchmarkPop-2   	  200000	     15559 ns/op	   65536 B/op	       1 allocs/op
+PASS
+ok  	_/home/ubuntu/prque/intheap	5.634s

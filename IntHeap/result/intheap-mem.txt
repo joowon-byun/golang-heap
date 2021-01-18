@@ -1,0 +1,5 @@
+goos: linux
+goarch: amd64
+BenchmarkIntHeapPop-2   	  300000	      6410 ns/op	   65536 B/op	       1 allocs/op
+PASS
+ok  	_/home/ubuntu/prque/intheap	3.862s
