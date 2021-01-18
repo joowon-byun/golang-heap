@@ -1,0 +1,7 @@
+goos: darwin
+goarch: amd64
+pkg: github.com/winnie-byun/golang-heap/ByteHeap
+BenchmarkPrqueByteSlicePop_Mem-12    	   10000	       499 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPrqueByteSlicePop-12        	   10000	       495 ns/op
+PASS
+ok  	github.com/winnie-byun/golang-heap/ByteHeap	0.188s

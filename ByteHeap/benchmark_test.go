@@ -8,7 +8,7 @@
 package byteHeap
 
 import (
-	"crypto/rand"
+	"math/rand"
 	"testing"
 
 	"github.com/klaytn/klaytn/common"

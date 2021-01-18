@@ -8,13 +8,13 @@
 package byteHeap
 
 import (
-	"crypto/rand"
+	"math/rand"
 	"testing"
 
 	"github.com/klaytn/klaytn/common"
 )
 
-func BenchmarkPrqueByteSlicePush(b *testing.B) {
+func BenchmarkPrqueByteSlicePush_Mem(b *testing.B) {
 	// Create some initial data
 	data := make([]int, b.N)
 	prio := make([][]byte, b.N)
@@ -31,7 +31,7 @@ func BenchmarkPrqueByteSlicePush(b *testing.B) {
 	}
 }
 
-func BenchmarkPrqueByteSlicePop(b *testing.B) {
+func BenchmarkPrqueByteSlicePop_Mem(b *testing.B) {
 	// Create some initial data
 	data := make([]int, b.N)
 	prio := make([][]byte, b.N)
@@ -51,7 +51,7 @@ func BenchmarkPrqueByteSlicePop(b *testing.B) {
 	}
 }
 
-func BenchmarkHeapByteSlicePush(b *testing.B) {
+func BenchmarkHeapByteSlicePush_Mem(b *testing.B) {
 	// Create some initial data
 	data := make([]int, b.N)
 	prio := make([][]byte, b.N)
@@ -68,7 +68,7 @@ func BenchmarkHeapByteSlicePush(b *testing.B) {
 	}
 }
 
-func BenchmarkHeapByteSlicePop(b *testing.B) {
+func BenchmarkHeapByteSlicePop_Mem(b *testing.B) {
 	// Create some initial data
 	data := make([]int, b.N)
 	prio := make([][]byte, b.N)
